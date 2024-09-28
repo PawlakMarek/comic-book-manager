@@ -4,5 +4,6 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
+clap = "4.5.18"
 config = "0.14.0"
 dotenv = "0.15.0"

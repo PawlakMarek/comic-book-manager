@@ -1,6 +1,13 @@
+use std::env;
+
 use config::{Config, ConfigError, File};
 use dotenv::dotenv;
-use std::env;
+
+mod business_logic;
+mod cli;
+mod data;
+mod utils;
+mod web;
 
 fn main() -> Result<(), ConfigError> {
     // Load environment variables from .env file
@@ -23,12 +30,10 @@ fn main() -> Result<(), ConfigError> {
         env::var("MARVEL_API_PRIVATE_KEY").expect("MARVEL_API_PRIVATE_KEY not set");
     let comicvine_api_key = env::var("COMICVINE_API_KEY").expect("COMICVINE_API_KEY not set");
 
-    println!("Database URL: {}", database_url);
-    println!("Marvel API Base URL: {}", marvel_base_url);
-    println!("ComicVine API Base URL: {}", comicvine_base_url);
-    println!("Marvel API Public Key: {}", marvel_api_public_key);
-    println!("Marvel API Private Key: {}", marvel_api_private_key);
-    println!("ComicVine API Key: {}", comicvine_api_key);
+    println!("Welcome to the Comic Book Manager!");
+
+    // Pass configurations to the CLI if needed
+    cli::run();
 
     Ok(())
 }
