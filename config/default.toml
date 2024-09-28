@@ -1,0 +1,6 @@
+[database]
+url = "sqlite://comic_book_manager.db"
+
+[api]
+marvel_base_url = "https://gateway.marvel.com"
+comicvine_base_url = "https://comicvine.gamespot.com/api"
